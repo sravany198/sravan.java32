@@ -1,0 +1,9 @@
+body
+   {
+    background-color: blue;
+    color: green;
+    border: 2px solid green;
+    border-radius: 5px;
+    padding: 20px;
+    font-family: bold, sans-serif;
+   } 

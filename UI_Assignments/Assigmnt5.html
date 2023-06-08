@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>myProfile</title>
+</head>
+<body>
+  <form id="profileForm">
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" name="firstName"><br/>
+
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" name="lastName"><br/>
+
+    <label for="dob">Date of Birth:</label>
+    <input type="date" id="dob" name="dob"><br/>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email"><br/>
+
+    <label for="phone">Phone Number:</label>
+    <input type="tel" id="phone" name="phone"><br/>
+
+    <button type="button" onclick="submitForm()">Submit</button>
+  </form>
+
+  <h2>Profile Information:</h2>
+  <div id="profileInfo"></div>
+
+  <script>
+    function submitForm() {
+      const form = document.getElementById('profileForm');
+      const formData = new FormData(form);
+
+      const profileInfoDiv = document.getElementById('profileInfo');
+      profileInfoDiv.innerHTML = '';
+
+      for (const [key, value] of formData.entries()) {
+        const label = key.charAt(0).toUpperCase() + key.slice(1);
+        const paragraph = document.createElement('p');
+        paragraph.innerHTML = `<strong>${label}:</strong> ${value}`;
+        profileInfoDiv.appendChild(paragraph);
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assignment 4</title>
+</head>
+<body>
+    <div id="hobbies"></div>
+
+    <script>
+        var my_profile = {
+            first_name: "sravan",
+            last_name: "kumar",
+            DOB: "15th may, 1996",
+            Nationality: "India",
+            Address: "Hyderabad",
+            blood: "A+",
+            phone: 123456789,
+            hobbies: ["Internet Surfing", "Making Memes", "Watching Series"]
+        };
+
+        function renderHobbies() {
+            var hobbiesDiv = document.getElementById("hobbies");
+            hobbiesDiv.innerHTML = "";
+
+            var hobbiesList = document.createElement("ul");
+            my_profile.hobbies.forEach(function (hobby) {
+                var hobbyItem = document.createElement("li");
+                hobbyItem.textContent = hobby;
+                hobbiesList.appendChild(hobbyItem);
+            });
+
+            hobbiesDiv.appendChild(hobbiesList);
+        }
+
+        renderHobbies();
+
+        function addHobby(hobby) {
+            my_profile.hobbies.push(hobby);
+            renderHobbies();
+        }
+
+        addHobby("Playing Sports");
+
+        function removeHobby(hobbyToRemove) {
+            var index = my_profile.hobbies.indexOf(hobbyToRemove);
+            if (index > -1) {
+                my_profile.hobbies.splice(index, 1);
+                renderHobbies();
+            }
+        }
+
+        removeHobby("Playing Sports");
+    </script>
+</body>
+</html>
